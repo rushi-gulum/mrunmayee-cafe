@@ -1,0 +1,284 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+  --font-script: var(--font-script);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Authentic Puneri Heritage Palette Tokens */
+  --color-saffron: var(--saffron);       /* Muted turmeric & warm Tambat Ali brass */
+  --color-maroon: var(--maroon);         /* Seasoned Deccan teakwood & basalt stone */
+  --color-cream: var(--cream);           /* Warm lime plaster / off-white wada parchment */
+  --color-forest: var(--forest);         /* Deccan river sage */
+  --color-ochre: var(--ochre);           /* Jaggery ochre */
+  --color-terracotta: var(--terracotta); /* Pune red brick & geru */
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /*
+   * Mrunmayee Puneri Heritage Palette
+   * Grounded in Pune's historic wadas, old peths, and Deccan craftsmanship:
+   *   - Warm off-white / lime plaster (background paper)
+   *   - Seasoned teak & basalt brown (primary ink and deep wada timber)
+   *   - Warm gold / hammered brass (#C5A059) for typography and festive accents
+   *   - Pune brick red / geru (warm terracotta highlight)
+   *   - Mutha river sage (subtle herbal accent)
+   */
+  --cream: oklch(0.975 0.015 85);       /* warm Deccan parchment */
+  --saffron: #C5A059;                  /* muted turmeric / warm brass */
+  --maroon: oklch(0.28 0.035 48);      /* seasoned wada teakwood & basalt */
+  --forest: oklch(0.46 0.06 150);      /* Deccan river sage */
+  --ochre: oklch(0.68 0.13 75);        /* jaggery ochre */
+  --terracotta: oklch(0.50 0.14 38);   /* brick red / geru */
+
+  --radius: 0.25rem;
+  --background: oklch(0.975 0.015 85); /* warm off-white parchment */
+  --foreground: oklch(0.24 0.025 50);  /* deep earthy brown / basalt ink */
+  --card: oklch(0.99 0.010 88);        /* warm lime-plaster card surface */
+  --card-foreground: oklch(0.24 0.025 50);
+  --popover: oklch(0.99 0.010 88);
+  --popover-foreground: oklch(0.24 0.025 50);
+  --primary: oklch(0.28 0.035 48);     /* seasoned teakwood */
+  --primary-foreground: oklch(0.975 0.015 85);
+  --secondary: oklch(0.925 0.020 85);
+  --secondary-foreground: oklch(0.28 0.035 48);
+  --muted: oklch(0.925 0.020 85);
+  --muted-foreground: oklch(0.46 0.025 55);
+  --accent: #C5A059;                   /* warm brass / gold */
+  --accent-foreground: oklch(0.24 0.025 50);
+  --destructive: oklch(0.50 0.14 38);  /* terracotta red */
+  --border: oklch(0.86 0.025 80);
+  --input: oklch(0.86 0.025 80);
+  --ring: #C5A059;
+  --chart-1: #C5A059;
+  --chart-2: oklch(0.28 0.035 48);
+  --chart-3: oklch(0.68 0.13 75);
+  --chart-4: oklch(0.46 0.06 150);
+  --chart-5: oklch(0.50 0.14 38);
+  --sidebar: oklch(0.975 0.015 85);
+  --sidebar-foreground: oklch(0.24 0.025 50);
+  --sidebar-primary: #C5A059;
+  --sidebar-primary-foreground: oklch(0.24 0.025 50);
+  --sidebar-accent: oklch(0.925 0.020 85);
+  --sidebar-accent-foreground: oklch(0.24 0.025 50);
+  --sidebar-border: oklch(0.86 0.025 80);
+  --sidebar-ring: #C5A059;
+}
+
+.dark {
+  --background: oklch(0.18 0.015 50);
+  --foreground: oklch(0.96 0.015 85);
+  --card: oklch(0.22 0.018 50);
+  --card-foreground: oklch(0.96 0.015 85);
+  --popover: oklch(0.22 0.018 50);
+  --popover-foreground: oklch(0.96 0.015 85);
+  --primary: #C5A059;
+  --primary-foreground: oklch(0.18 0.015 50);
+  --secondary: oklch(0.28 0.025 50);
+  --secondary-foreground: oklch(0.96 0.015 85);
+  --muted: oklch(0.28 0.025 50);
+  --muted-foreground: oklch(0.75 0.020 80);
+  --accent: #C5A059;
+  --accent-foreground: oklch(0.18 0.015 50);
+  --destructive: oklch(0.60 0.15 35);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #C5A059;
+  --sidebar: oklch(0.22 0.018 50);
+  --sidebar-foreground: oklch(0.96 0.015 85);
+  --sidebar-primary: #C5A059;
+  --sidebar-primary-foreground: oklch(0.18 0.015 50);
+  --sidebar-accent: oklch(0.28 0.025 50);
+  --sidebar-accent-foreground: oklch(0.96 0.015 85);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: #C5A059;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02";
+    text-rendering: optimizeLegibility;
+  }
+  /* Elegant serif and Puneri display typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Puneri wada craftsmanship flourishes & utilities */
+@layer utilities {
+  .font-display { font-family: var(--font-display), Georgia, serif; }
+  .font-script  { font-family: var(--font-script), cursive; }
+  .font-body    { font-family: var(--font-body), system-ui, sans-serif; }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Decorative letter spacing on Puneri tracking headers */
+  .tracking-caps { letter-spacing: 0.22em; text-transform: uppercase; }
+
+  /* Wada architectural frame: subtle dark wood edge + parchment mat */
+  .wada-frame, .img-frame {
+    border: 1px solid color-mix(in oklch, var(--foreground) 45%, transparent);
+    padding: 8px;
+    background: var(--card);
+    box-shadow: 0 1px 3px 0 color-mix(in oklch, var(--foreground) 10%, transparent);
+  }
+  .wada-frame > img, .img-frame > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Section frame: architectural border for peth feature blocks */
+  .section-frame {
+    border: 1px solid color-mix(in oklch, var(--foreground) 20%, transparent);
+    background: var(--card);
+  }
+
+  /* Puneri architectural divider with brass/lotus ornament */
+  .puneri-divider, .diamond-sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: color-mix(in oklch, var(--accent) 85%, transparent);
+  }
+  .puneri-divider::before,
+  .puneri-divider::after,
+  .diamond-sep::before,
+  .diamond-sep::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.45;
+    max-width: 70px;
+  }
+
+  /* Traditional Puneri Patya styling */
+  .puneri-patya {
+    font-family: var(--font-display), Georgia, serif;
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    font-style: italic;
+  }
+
+  /* Custom marquee animation */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 38s linear infinite;
+  }
+
+  /* Soft entrance */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Slow zoom for hero */
+  @keyframes slow-zoom {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+  }
+  .animate-slow-zoom {
+    animation: slow-zoom 14s ease-out forwards;
+  }
+
+  /* Hand-crafted parchment texture overlay */
+  .paper-grain {
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(0,0,0,0.03) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 4px 4px, 6px 6px;
+  }
+
+  /* Sticky footer helper */
+  .sticky-footer-wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Hide scrollbar on the tab strip */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Custom scrollbar, wada brass feel */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.925 0.020 85);
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;  /* warm brass */
+  border-radius: 2px;
+  border: 2px solid oklch(0.925 0.020 85);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.28 0.035 48);
+}
+
+/* Selection */
+::selection {
+  background: #C5A059;
+  color: oklch(0.18 0.015 50);
+}
